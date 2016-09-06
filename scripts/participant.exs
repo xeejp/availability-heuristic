@@ -1,5 +1,5 @@
-defmodule AllaisParadox.Participant do
-  alias AllaisParadox.Actions
+defmodule UsabilityHeuristics.Participant do
+  alias UsabilityHeuristics.Actions
 
   # Actions
   def fetch_contents(data, id) do
@@ -9,12 +9,8 @@ defmodule AllaisParadox.Participant do
 
   def next_question(data, id, selected) do
     data = data |> put_in([:participants, id, :sequence], selected["next"])
-    if selected["next"] == "question2" do
-      data = data |> put_in([:participants, id, :question1], selected["selected"])
-    else
-      data = data |> put_in([:participants, id, :question2], selected["selected"])
-                  |> Map.put(:answered, data.answered + 1)
-    end
+                    |> put_in([:participants, id, :question1], selected["selected"])
+                    |> Map.put(:answered, data.answered + 1)
     Actions.next_question(data, id, selected)
   end
 

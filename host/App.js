@@ -28,11 +28,11 @@ class App extends Component {
 
   render() {
     const { loading, page, participants } = this.props
-    var ans = [[0, 0], [0, 0]]
+    var ans = [0, 0]
     if(participants != undefined){
-      for(var i in participants) {
-        if(participants[i].question2 != 0){
-          ans[participants[i].question1 - 1][participants[i].question2 - 1]++
+      for(var i in participants){
+        if(participants[i].question1 != 0){
+          ans[participants[i].question1 - 1]++
         }
       }
     }
@@ -49,7 +49,7 @@ class App extends Component {
             }}
           />
           <Users /><br />
-         <Chart oneone={ans[0][0]} onetwo={ans[0][1]} twoone={ans[1][0]} twotwo={ans[1][1]} expanded={false} /><br />
+         <Chart one={ans[0]} two={ans[1]} expanded={false} /><br />
           <EditQuestion />
         </div>
       )

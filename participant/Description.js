@@ -10,7 +10,7 @@ const mapStateToProps = ({ question_text }) => ({
 
 const Description = ({ question_text }) => (
   <Card>
-    <CardTitle title="アレのパラドクス" subtitle="ルールの説明" />
+    <CardTitle title="利用可能性ヒューリスティクス" subtitle="ルールの説明" />
     <CardText>
       {question_text['description_text'].split('\n').map( line => <p>{line}</p>)}
     </CardText>

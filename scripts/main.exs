@@ -1,8 +1,8 @@
-defmodule AllaisParadox.Main do
-  alias AllaisParadox.Actions
+defmodule UsabilityHeuristics.Main do
+  alias UsabilityHeuristics.Actions
 
   @pages ["waiting", "description", "experiment", "result"]
-  @sequence ["question1", "question2", "answered"]
+  @sequence ["question1", "answered"]
 
   def pages, do: @pages
   def sequence, do: @sequence
@@ -13,35 +13,25 @@ defmodule AllaisParadox.Main do
       participants: %{},
       joined: 0,
       answered: 0,
-      oneone: 0,
-      onetwo: 0,
-      twoone: 0,
-      twotwo: 0,
+      one: 0,
+      two: 0,
       question_text: %{
           'question': %{
-              text: "つぎの2つの選択肢のうち、あなたの好む方を選んでください。",
+              text: "Rについて考えてください。",
            },
            'question1': %{
-             text: "どちらかの選択肢を選んでください。",
-              title: ["オプションA", "オプションB"],
+             text: "辞書中の英単語のうち、Rが",
+              title: ["①", "②"],
               question: [
-                "確実に100万円を手にする。", 
-                "89％の確率で100万円、10%の確率で250万円を獲得する。ただし、1%の確率で何ももらえない。"
+                "最初に来るものが多い。", 
+                "3番目に来るものが多い。"
               ]
-            },
-           'question2': %{
-             text: "どちらかの選択肢を選んでください。",
-             title: ["オプションA", "オプションB"],
-             question: [
-               "11%の確率で100万円を得る。",
-               "10%の確率で250万円を得る。"
-             ]
             },
             'answered': %{
               text: "あなたの回答は終了しました。他の参加者の回答が終了するまでこのままお待ちください。",
            },
            'waiting_text': "参加者の登録を待っています。\nこの画面のまましばらくお待ちください。",
-           'description_text': "これから、2つの質問をします。\n選択肢のうち、あなたが最も好むものを選択してください。",
+           'description_text': "これから、1つ質問をします。\n選択肢のうち、あなたが最も好むものを選択してください。",
           },
         }
   end
@@ -51,14 +41,11 @@ defmodule AllaisParadox.Main do
       question_text: data.question_text,
       sequence: "question1",
       question1: 0,
-      question2: 0,
       active: true,
       joined: 1,
       qswap: false,
-      oneone: data.oneone,
-      onetwo: data.onetwo,
-      twoone: data.twoone,
-      twotwo: data.twotwo,
+      one: data.one,
+      two: data.two,
     }
   end
 

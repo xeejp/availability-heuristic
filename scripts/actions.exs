@@ -1,6 +1,6 @@
-defmodule AllaisParadox.Actions do
-  alias AllaisParadox.Participant
-  alias AllaisParadox.Host
+defmodule UsabilityHeuristics.Actions do
+  alias UsabilityHeuristics.Participant
+  alias UsabilityHeuristics.Host
 
   def change_page(data, page) do
     action = get_action("change page", page)
@@ -27,7 +27,6 @@ defmodule AllaisParadox.Actions do
          question_text: data.question_text,
           sequence: "question1",
           question1: 0,
-          question2: 0,
           active: true,
           joined: Map.size(data.participants)
         })

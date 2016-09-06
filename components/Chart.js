@@ -18,7 +18,7 @@ class Chart extends Component {
   }
   
   render() {
-    const { oneone, onetwo, twoone, twotwo, question_text } = this.props
+    const { one, two, question_text } = this.props
     return (
     <Card
       expanded={this.state.expanded}
@@ -31,7 +31,7 @@ class Chart extends Component {
       />
       <CardText expandable={true}>
         <span>
-          {(oneone + onetwo != 0)?
+          {(one + two != 0)?
             <Highcharts
               config={{
                   chart: {
@@ -41,7 +41,7 @@ class Chart extends Component {
                     enabled: false,
                   },
                   title: {
-                    text: 'はじめの質問で' + question_text["question1"].title[0] + 'を選んだ人'
+                    text: '実験結果'
                   },
                   plotOptions: {
                       pie: {
@@ -61,52 +61,14 @@ class Chart extends Component {
                     name: '回答',
                     colorByPoint: true,
                     data: [{
-                      name: '次の質問で' + question_text["question2"].title[0] + 'を選んだ人',
-                      y: oneone,
+                      name: question_text["question1"].title[0] + 'を選んだ人',
+                      y: one,
                     }, {
-                       name: '次の質問で' + question_text["question2"].title[1] + 'を選んだ人',
-                       y: onetwo,
+                       name: question_text["question1"].title[1] + 'を選んだ人',
+                       y: two,
                     }]
                   }]
-             }} /> : <p>はじめの質問で{question_text["question1"].title[0]}を選んだ人はいませんでした。</p>}
-          {(twoone + twotwo != 0)?
-            <Highcharts
-              config={{
-                  chart: {
-                    type: 'pie'
-                  },
-                  credits : {
-                    enabled: false,
-                  },
-                  title: {
-                    text: 'はじめの質問で' + question_text["question1"].title[1] + 'を選んだ人'
-                  },
-                  plotOptions: {
-                      pie: {
-                          dataLabels: {
-                              distance: -30,
-                              format: '{point.y:.0f}人'
-                          },
-                          showInLegend: true
-                     }
-                  },  
-    
-                  tooltip: {
-                     headerFormat: '<span>{series.name}</span><br>',
-                    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.0f}人</b> <br/>'
-                  },
-                  series: [{
-                     name: '回答',
-                   colorByPoint: true,
-                   data: [{
-                       name: '次の質問で' + question_text["question2"].title[1] + 'を選んだ人',
-                       y: twotwo,
-                      }, {
-                       name: '次の質問で' + question_text["question2"].title[0] + 'を選んだ人',
-                       y: twoone,
-                   }]
-                  }]
-             }} /> : <p>はじめの質問で{question_text["question1"].title[1]}を選んだ人はいませんでした。</p>}
+             }} /> : <p>回答がありませんでした。</p>}
         </span>
       </CardText>
     </Card>

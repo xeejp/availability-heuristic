@@ -5,13 +5,13 @@ import { fetchContents } from './actions'
 
 import Chart from 'components/Chart'
 
-const mapStateToProps = ({ oneone, onetwo, twoone, twotwo }) => ({
-  oneone, onetwo, twoone, twotwo
+const mapStateToProps = ({ one, two }) => ({
+  one, two
 })
 
-const Result = ({ oneone, onetwo, twoone, twotwo }) => (
+const Result = ({ one, two }) => (
   <div>
-    <Chart oneone={oneone} onetwo={onetwo} twoone={twoone} twotwo={twotwo} expanded={true} />
+    <Chart one={one} two={two} expanded={true} />
   </div>
 )
 

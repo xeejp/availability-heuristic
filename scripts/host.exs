@@ -1,6 +1,6 @@
-defmodule AllaisParadox.Host do
-  alias AllaisParadox.Main
-  alias AllaisParadox.Actions
+defmodule UsabilityHeuristics.Host do
+  alias UsabilityHeuristics.Main
+  alias UsabilityHeuristics.Actions
 
   require Logger
 
@@ -28,23 +28,18 @@ defmodule AllaisParadox.Host do
           question_text: data.question_text,
           sequence: "question1",
           question1: 0,
-          question2: 0,
           active: true,
           joined: Map.size(data.participants),
           qswap: true,
-          oneone: 0,
-          onetwo: 0,
-          twoone: 0,
-          twotwo: 0,
+          one: 0,
+          two: 0,
         }
       }
     end), %{}))
                 |> Map.put(:joined, Map.size(data.participants))
                 |> Map.put(:answered, 0)
-                |> Map.put(:oneone, 0)
-                |> Map.put(:onetwo, 0)
-                |> Map.put(:twoone, 0)
-                |> Map.put(:twotwo, 0)
+                |> Map.put(:one, 0)
+                |> Map.put(:two, 0)
     data = data |> Map.put(:participants, data.participants
                 |> Map.merge(data.participants
                 |> Enum.shuffle
@@ -56,8 +51,8 @@ defmodule AllaisParadox.Host do
 
   def send_result(data, result) do
     data = data  |> Map.put(:participants, Enum.into(Enum.map(data.participants, fn { id, value } ->
-      {id, value |> Map.put(:oneone, result["oneone"]) |> Map.put(:onetwo, result["onetwo"]) |> Map.put(:twoone, result["twoone"]) |> Map.put(:twotwo, result["twotwo"])} end), %{}))
-                 |> Map.put(:oneone, result["oneone"]) |> Map.put(:onetwo, result["onetwo"]) |> Map.put(:twoone, result["twoone"]) |> Map.put(:twotwo, result["twotwo"])
+      {id, value |> Map.put(:one, result["one"]) |> Map.put(:two, result["two"])} end), %{}))
+                 |> Map.put(:one, result["one"]) |> Map.put(:two, result["two"])
                  |> Map.put(:answered, 0)
     Actions.send_result(data, result)
   end

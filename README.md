@@ -1,1 +1,1 @@
-# Allais Paradox
+# Usability Heuristics

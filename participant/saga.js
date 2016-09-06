@@ -10,7 +10,7 @@ function* fetchContentsSaga() {
 }
 
 function* nextQuestionSaga() {
-  const sequences = ["question1", "question2", "answered"]
+  const sequences = ["question1", "answered"]
   while(true){
     const { payload: { selected } } = yield take(`${nextQuestion}`)
     const sequence = yield select(({ sequence }) => sequence)
