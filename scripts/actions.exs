@@ -1,6 +1,6 @@
-defmodule UsabilityHeuristics.Actions do
-  alias UsabilityHeuristics.Participant
-  alias UsabilityHeuristics.Host
+defmodule AvailabilityHeuristic.Actions do
+  alias AvailabilityHeuristic.Participant
+  alias AvailabilityHeuristic.Host
 
   def change_page(data, page) do
     action = get_action("change page", page)

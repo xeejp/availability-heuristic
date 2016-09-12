@@ -1,5 +1,5 @@
-defmodule UsabilityHeuristics.Participant do
-  alias UsabilityHeuristics.Actions
+defmodule AvailabilityHeuristic.Participant do
+  alias AvailabilityHeuristic.Actions
 
   # Actions
   def fetch_contents(data, id) do

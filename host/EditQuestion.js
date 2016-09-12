@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import {Tabs, Tab} from 'material-ui/Tabs'
 import {Card} from 'material-ui/Card'
+import Paper from 'material-ui/Paper'
 import SwipeableViews from 'react-swipeable-views'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 import ImageEdit from 'material-ui/svg-icons/image/edit'
@@ -27,11 +28,11 @@ class EditQuestion extends Component {
       mainSlideIndex: 0,
       default_text: {
           'question': {
-              text: "Rについて考えてください。",
+              text: "辞書の3語以上の英単語のうちrで始まる語と3番目の文字にrが来る単語を比べた場合どちらが多いでしょうか。",
            },
            'question1': {
-             text: "辞書中の英単語のうち、Rが",
-              title: ["①", "②"],
+             text: "辞書中の英単語のうち、rが",
+              title: ["1.", "2."],
               question: [
                 "最初に来るものが多い。", 
                 "3番目に来るものが多い。"
@@ -42,7 +43,7 @@ class EditQuestion extends Component {
            },
            'waiting_text': "参加者の登録を待っています。\nこの画面のまましばらくお待ちください。",
            'description_text': "これから、1つ質問をします。\n選択肢のうち、あなたが最も好むものを選択してください。",
-          }
+          },
     }
   }
 
@@ -56,34 +57,42 @@ class EditQuestion extends Component {
           multiLine={true}
           fullWidth={true}
         /><br />
-        <div>
+        <div style={{ marginLeft: "2%", marginRight: "2%"}}>
           <TextField
             hintText={"問題の詳細"}
             defaultValue={this.state.question_text["question1"].text}
             onBlur={this.handleChange.bind(this, ["question1", "text"])}
             multiLine={true}
-           fullWidth={true}
+            fullWidth={true}
           /><br />
+          <div style={{marginLeft: "2%"}}>
+        <Paper zDepth={1} style={{ marginLeft: "2%", padding: 10, marginBottom: 10}}>
          <TextField
-         hintText={this.state.default_text["question1"].title[0]}
-           defaultValue={this.state.question_text["question1"].title[0]}
+           hintText={this.state.default_text["question1"].title[0]}
+            defaultValue={this.state.question_text["question1"].title[0]}
            onBlur={this.handleChange.bind(this, ["question1", "title", 0])}
-         />:<TextField
+         /><br />
+         <div style={{marginLeft: "2%"}}><TextField
             hintText={this.state.default_text["question1"].title[0] + "の詳細"}
             defaultValue={this.state.question_text["question1"].question[0]}
             onBlur={this.handleChange.bind(this, ["question1", "question", 0])}
             multiLine={true}
-         /><br />
-      <TextField
+            fullWidth={true}
+         /></div></Paper><br />
+        <Paper zDepth={1} style={{ marginLeft: "2%", padding: 10, marginBottom: 10}}>
+        <TextField
             hintText={this.state.default_text["question1"].title[1]}
-           defaultValue={this.state.question_text["question1"].title[1]}
+            defaultValue={this.state.question_text["question1"].title[1]}
            onBlur={this.handleChange.bind(this, ["question1", "title", 1])}
-          />:<TextField
-            hintText={this.state.default_text["question1"].title[1] + "の詳細"}
-             defaultValue={this.state.question_text["question1"].question[1]}
-            onBlur={this.handleChange.bind(this, ["question1", "question", 1])}
-            multiLine={true}
           /><br />
+          <div style={{marginLeft: "2%"}}><TextField
+             hintText={this.state.default_text["question1"].title[1] + "の詳細"}
+             defaultValue={this.state.question_text["question1"].question[1]}
+             onBlur={this.handleChange.bind(this, ["question1", "question", 1])}
+             multiLine={true}
+             fullWidth={true}
+           /></div></Paper><br />
+          </div>
         </div>
       </div>
     )

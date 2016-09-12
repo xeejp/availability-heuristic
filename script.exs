@@ -1,4 +1,4 @@
-defmodule UsabilityHeuristics do
+defmodule AvailabilityHeuristic do
   use Xee.ThemeScript
   require Logger
 
@@ -7,9 +7,9 @@ defmodule UsabilityHeuristics do
   require_file "scripts/participant.exs"
   require_file "scripts/actions.exs"
 
-  alias UsabilityHeuristics.Main
-  alias UsabilityHeuristics.Host
-  alias UsabilityHeuristics.Participant
+  alias AvailabilityHeuristic.Main
+  alias AvailabilityHeuristic.Host
+  alias AvailabilityHeuristic.Participant
 
   # Callbacks
   def script_type do

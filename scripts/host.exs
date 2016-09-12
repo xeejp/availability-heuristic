@@ -1,6 +1,6 @@
-defmodule UsabilityHeuristics.Host do
-  alias UsabilityHeuristics.Main
-  alias UsabilityHeuristics.Actions
+defmodule AvailabilityHeuristic.Host do
+  alias AvailabilityHeuristic.Main
+  alias AvailabilityHeuristic.Actions
 
   require Logger
 

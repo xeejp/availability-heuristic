@@ -1,5 +1,5 @@
-defmodule UsabilityHeuristics.Main do
-  alias UsabilityHeuristics.Actions
+defmodule AvailabilityHeuristic.Main do
+  alias AvailabilityHeuristic.Actions
 
   @pages ["waiting", "description", "experiment", "result"]
   @sequence ["question1", "answered"]
@@ -17,11 +17,11 @@ defmodule UsabilityHeuristics.Main do
       two: 0,
       question_text: %{
           'question': %{
-              text: "Rについて考えてください。",
+              text: "辞書の3語以上の英単語のうちrで始まる語と3番目の文字にrが来る単語を比べた場合どちらが多いでしょうか。",
            },
            'question1': %{
-             text: "辞書中の英単語のうち、Rが",
-              title: ["①", "②"],
+             text: "辞書中の英単語のうち、rが",
+              title: ["1.", "2."],
               question: [
                 "最初に来るものが多い。", 
                 "3番目に来るものが多い。"
