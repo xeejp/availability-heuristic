@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton'
 import RaisedButton from 'material-ui/RaisedButton'
+import { Card, CardText } from 'material-ui/Card'
 
 import { nextQuestion } from './actions'
 
@@ -25,7 +26,8 @@ class Experiment extends Component {
     const Question = question_text["question"]
     const Text = question_text[sequence]
     return (sequence != "answered")?
-      <div style={{height: 'auto'}}>
+    <Card><CardText>
+      <div style={{height: 'auto', overflow: 'hidden'}}>
         <h5>{Question.text}</h5>
        {Text.text.split('\n').map( line => <p>{line}</p>)}
         <RaisedButton onClick={this.next.bind(this, 1)} style={{float:  'left', width: '40%', height: '300px', position: 'relative', margin: '5%'}}>
@@ -41,7 +43,8 @@ class Experiment extends Component {
          </div>
         </RaisedButton>
       </div>
-    : <div>{Text.text.split('\n').map( line => <p>{line}</p>)}</div>
+      </CardText></Card>
+    : <Card><CardText>{Text.text.split('\n').map( line => <p>{line}</p>)}</CardText></Card>
   }
 }
 
