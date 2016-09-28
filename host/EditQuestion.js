@@ -189,7 +189,7 @@ class EditQuestion extends Component {
         onTouchTap={this.reset.bind(this)}
       />,
     ]
-    return (<div>
+    return (<span>
       <FloatingActionButton onClick={this.handleOpen.bind(this)} disabled={page != "waiting"}>
          <ImageEdit />
       </FloatingActionButton>
@@ -221,7 +221,7 @@ class EditQuestion extends Component {
         autoHideDuration={2000}
         onRequestClose={this.handleRequestClose.bind(this)}
       />
-    </div>)
+    </span>)
   }
 }
 
