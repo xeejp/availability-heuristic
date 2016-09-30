@@ -1,5 +1,6 @@
 ﻿import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import throttle from 'react-throttle-render'
 
 import { Card, CardHeader, CardText } from 'material-ui/Card'
 import Highcharts from 'react-highcharts'
@@ -12,11 +13,11 @@ class Chart extends Component {
     const { expanded } = this.props
     this.state = { expanded: expanded }
   }
-  
+
   handleExpandChange(expanded) {
     this.setState({ expanded: expanded })
   }
-  
+
   render() {
     const { one, two, question_text } = this.props
     return (
@@ -52,7 +53,7 @@ class Chart extends Component {
                           showInLegend: true
                      }
                   },
-                  
+
                   tooltip: {
                     headerFormat: '<span>{series.name}</span><br>',
                     pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.0f}人</b><br/>'
@@ -76,4 +77,4 @@ class Chart extends Component {
   }
 }
 
-export default connect(mapStateToProps)(Chart)
+export default connect(mapStateToProps)(throttle(Chart, 200))
