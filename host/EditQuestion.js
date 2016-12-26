@@ -13,6 +13,8 @@ import Snackbar from 'material-ui/Snackbar'
 
 import { updateQuestion, fetchContents } from './actions'
 
+import { ReadJSON } from '../util/ReadJSON'
+
 const mapStateToProps = ({ question_text, page }) => ({
   question_text, page
 })
@@ -21,31 +23,20 @@ class EditQuestion extends Component {
   constructor(props){
     super(props)
     const { question_text } = this.props
+    var default_text = question_text
+    if(!question_text) {
+      default_text = ReadJSON().dynamic_text
+      const { dispatch } = this.props
+      dispatch(updateQuestion(default_text))
+    }
     this.state = {
-      question_text: question_text,
+      question_text: default_text,
       open: false,
       snack: false,
       message: "設定を送信しました。",
       slideIndex: 0,
       mainSlideIndex: 0,
-      default_text: {
-          'question': {
-              text: "辞書の3語以上の英単語のうちrで始まる語と3番目の文字にrが来る単語を比べた場合どちらが多いでしょうか。",
-           },
-           'question1': {
-             text: "辞書中の英単語のうち、rが",
-              title: ["1.", "2."],
-              question: [
-                "最初に来るものが多い。", 
-                "3番目に来るものが多い。"
-              ]
-            },
-            'answered': {
-              text: "あなたの回答は終了しました。他の参加者の回答が終了するまでこのままお待ちください。",
-           },
-           'waiting_text': "参加者の登録を待っています。\nこの画面のまましばらくお待ちください。",
-           'description_text': "これから、1つ質問をします。\n選択肢のうち、あなたが最も好むものを選択してください。",
-          },
+      default_text: ReadJSON().dynamic_text,
     }
   }
 

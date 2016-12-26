@@ -15,24 +15,7 @@ defmodule AvailabilityHeuristic.Main do
       answered: 0,
       one: 0,
       two: 0,
-      question_text: %{
-          'question': %{
-              text: "辞書の3語以上の英単語のうちrで始まる語と3番目の文字にrが来る単語を比べた場合どちらが多いでしょうか。",
-           },
-           'question1': %{
-             text: "辞書中の英単語のうち、rが",
-              title: ["1.", "2."],
-              question: [
-                "最初に来るものが多い。", 
-                "3番目に来るものが多い。"
-              ]
-            },
-            'answered': %{
-              text: "あなたの回答は終了しました。他の参加者の回答が終了するまでこのままお待ちください。",
-           },
-           'waiting_text': "参加者の登録を待っています。\nこの画面のまましばらくお待ちください。",
-           'description_text': "これから、1つ質問をします。\n選択肢のうち、あなたが最も好むものを選択してください。",
-          },
+      question_text:  nil,
         }
   end
 
