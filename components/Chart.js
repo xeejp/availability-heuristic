@@ -5,6 +5,8 @@ import throttle from 'react-throttle-render'
 import { Card, CardHeader, CardText } from 'material-ui/Card'
 import Highcharts from 'react-highcharts'
 
+import { ReadJSON } from '../util/ReadJSON'
+
 const mapStateToProps = ({ question_text }) => ({ question_text })
 
 class Chart extends Component {
@@ -20,13 +22,14 @@ class Chart extends Component {
 
   render() {
     const { one, two, question_text } = this.props
+    const text = ReadJSON().static_text["comp_chart"]
     return (
     <Card
       expanded={this.state.expanded}
       onExpandChange={this.handleExpandChange.bind(this)}
     >
       <CardHeader
-        title={"実験結果"}
+        title={text["title"]}
         actAsExpander={true}
         showExpandableButton={true}
       />
@@ -42,13 +45,13 @@ class Chart extends Component {
                     enabled: false,
                   },
                   title: {
-                    text: '実験結果'
+                    text: text["title"]
                   },
                   plotOptions: {
                       pie: {
                           dataLabels: {
                               distance: -30,
-                              format: '{point.y:.0f}人'
+                              format: '{point.y:.0f}' + text["person_unit"]
                           },
                           showInLegend: true
                      }
@@ -56,20 +59,20 @@ class Chart extends Component {
 
                   tooltip: {
                     headerFormat: '<span>{series.name}</span><br>',
-                    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.0f}人</b><br/>'
+                    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.0f}{text["person_unit"]}</b><br/>'
                   },
                   series: [{
-                    name: '回答',
+                    name: text["answer"],
                     colorByPoint: true,
                     data: [{
-                      name: question_text["question1"].title[0] + 'を選んだ人',
+                      name: question_text["question1"].title[0] + text["choice"],
                       y: one,
                     }, {
-                       name: question_text["question1"].title[1] + 'を選んだ人',
+                       name: question_text["question1"].title[1] + text["choice"],
                        y: two,
                     }]
                   }]
-             }} /> : <p>回答がありませんでした。</p>}
+             }} /> : <p>{text["no_answer"]}</p>}
         </span>
       </CardText>
     </Card>

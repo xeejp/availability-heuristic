@@ -17,5 +17,72 @@
            "waiting_text": "参加者の登録を待っています。\nこの画面のまましばらくお待ちください。",
            "description_text": "これから、1つ質問をします。\n選択肢のうち、あなたが最も好むものを選択してください。"
           },
-  "static_text": {}
+  "static_text": {
+    "loading": "ロード中です。",
+    "title": "利用可能性ヒューリスティクス",
+    "waiting": "待機画面",
+    "app": {
+      "date": "実験日",
+      "people": "登録者数",
+      "id": "id",
+      "answer": "回答",
+      "no_answer": "未回答"
+    },
+    "page_button": {
+      "back": "戻る",
+      "next": "次へ"
+    },
+    "config": {
+      "no_setting": "設定項目なし"
+    },
+    "users": {
+      "id": "id",
+      "status": "status",
+      "waiting": "待機中",
+      "description": "説明を表示",
+      "result": "結果を表示",
+      "question1": "回答中",
+      "answered": "回答済み",
+      "people": "登録者 ",
+      "person_unit": "人"
+    },
+    "editquestion": {
+      "send_message": "設定を送信しました。",
+      "question_description": "問題の説明",
+      "question_detail": "問題の詳細",
+      "detail": "詳細",
+      "waiting_text": "待機画面に表示するテキスト",
+      "reset_message": "設定を初期化しました。",
+      "apply": "適用",
+      "cancel": "キャンセル",
+      "reset": "すべてリセット",
+      "editor": "編集画面",
+      "question": "問題画面"
+    },
+    "part_app": {
+      "end": "この実験の受付は終了しました。\n次の実験をお待ちください。"
+    },
+    "part_description": {
+      "description": "ルールの説明"
+    },
+    "part_waiting": {
+      "joined": [
+        "現在",
+        "人が参加しています。"
+      ]
+    },
+    "comp_chart": {
+      "title": "実験結果",
+      "person_unit": "人",
+      "answer": "回答",
+      "choice": "を選んだ人",
+      "no_answer": "回答がありませんでした。"
+    },
+    "util_index": {
+      "waiting": "待機",
+      "description": "説明",
+      "experiment": "実験",
+      "result": "結果"
+    }
+  }
 }
