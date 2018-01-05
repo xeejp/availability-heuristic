@@ -11,7 +11,7 @@ import EditQuestion from './EditQuestion'
 import DownloadButton from './DownloadButton'
 import Users from './Users'
 
-import Chart from 'components/Chart'
+import Chart from '../components/Chart'
 
 import { ReadJSON } from '../util/ReadJSON'
 
