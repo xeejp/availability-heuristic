@@ -32,6 +32,6 @@ defmodule AvailabilityHeuristic.Mixfile do
   # 
   # Type "mix help deps" for more examples and options 
   defp deps do 
-    [{:xeethemescript, "~> 0.1.0"}] 
+    [{:xeethemescript, "~> 0.3.0"}] 
   end 
 end 
